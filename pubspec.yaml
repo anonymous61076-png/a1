@@ -1,0 +1,171 @@
+# ============================================================
+# HomeopathyOne – pubspec.yaml
+# Cross-platform Flutter app for homeopathyone.in
+# Targets: Android SDK 21+ | iOS 12+
+# ============================================================
+
+name: homeopathy_one
+description: >
+  HomeopathyOne – A global homeopathic consultation, education,
+  and e-commerce platform tailored for homeopathyone.in.
+  Supports multi-currency, multilingual, and cross-platform (Android & iOS).
+publish_to: 'none'   # Not publishing to pub.dev
+
+# App version. Bump versionCode for every Play Store / App Store release.
+version: 1.0.0+1
+
+# ------------------------------------------------------------
+# Dart / Flutter SDK Constraints
+# ------------------------------------------------------------
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: '>=3.19.0'
+
+# ============================================================
+# DEPENDENCIES
+# ============================================================
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Flutter's built-in localization support (ARB-based i18n)
+  flutter_localizations:
+    sdk: flutter
+
+  # ----------------------------------------------------------
+  # State Management – Riverpod 2.x (compile-safe providers)
+  # ----------------------------------------------------------
+  flutter_riverpod: ^2.5.1        # Core Riverpod for Flutter
+  riverpod_annotation: ^2.3.5     # Annotations for code-gen providers
+
+  # ----------------------------------------------------------
+  # Navigation
+  # ----------------------------------------------------------
+  go_router: ^13.2.0              # Declarative routing with deep-link support
+
+  # ----------------------------------------------------------
+  # Networking & API
+  # ----------------------------------------------------------
+  dio: ^5.4.3                     # Powerful HTTP client (interceptors, timeouts)
+  pretty_dio_logger: ^1.4.0       # Debug-friendly request/response logger
+
+  # ----------------------------------------------------------
+  # Local Persistence
+  # ----------------------------------------------------------
+  shared_preferences: ^2.2.3      # Key-value store (settings, tokens, prefs)
+  flutter_secure_storage: ^9.2.2  # Encrypted storage for auth tokens / secrets
+  hive_flutter: ^1.1.0            # Fast NoSQL local DB (caching, offline data)
+
+  # ----------------------------------------------------------
+  # Internationalization & Localization
+  # ----------------------------------------------------------
+  intl: ^0.19.0                   # Date/time formatting, number/currency formatting
+
+  # ----------------------------------------------------------
+  # Currency & Region Detection
+  # ----------------------------------------------------------
+  currency_picker: ^2.0.19        # UI picker for 160+ world currencies
+  country_code_picker: ^3.0.0     # Country code selector (phone + currency)
+
+  # ----------------------------------------------------------
+  # Authentication
+  # ----------------------------------------------------------
+  firebase_core: ^2.31.1          # Firebase initialization (required for all FB SDKs)
+  firebase_auth: ^4.19.6          # Email/password + social sign-in
+  google_sign_in: ^6.2.1          # Google OAuth flow
+
+  # ----------------------------------------------------------
+  # Payments (multi-gateway)
+  # ----------------------------------------------------------
+  flutter_stripe: ^10.1.1         # Stripe – global card payments
+  razorpay_flutter: ^1.3.7        # Razorpay – UPI/Netbanking (India)
+  pay: ^2.0.0                     # Apple Pay + Google Pay (native)
+
+  # ----------------------------------------------------------
+  # UI Components & Visuals
+  # ----------------------------------------------------------
+  flutter_svg: ^2.0.10+1          # SVG rendering for icons / illustrations
+  cached_network_image: ^3.3.1    # Network images with disk/memory cache
+  shimmer: ^3.0.0                 # Skeleton loading placeholders
+  lottie: ^3.1.0                  # JSON-based micro-animations
+  fl_chart: ^0.68.0               # Charts for health/consultation analytics
+  table_calendar: ^3.1.1          # Calendar widget for appointment booking
+  carousel_slider: ^4.2.1         # Image/card carousels (home banners)
+
+  # ----------------------------------------------------------
+  # Media & File Handling
+  # ----------------------------------------------------------
+  image_picker: ^1.1.2            # Camera / gallery photo selection
+  file_picker: ^8.0.6             # Document/file picker
+  video_player: ^2.9.1            # Embedded video playback
+  flutter_pdfview: ^1.3.2         # In-app PDF viewer for prescriptions/reports
+
+  # ----------------------------------------------------------
+  # Utilities
+  # ----------------------------------------------------------
+  equatable: ^2.0.5               # Value equality without boilerplate
+  dartz: ^0.10.1                  # Functional Either<Failure, T> pattern
+  get_it: ^7.7.0                  # Service locator (dependency injection)
+  injectable: ^2.4.4              # Code-gen DI annotations for get_it
+  logger: ^2.4.0                  # Structured logging with log levels
+  connectivity_plus: ^6.0.3       # Network connectivity detection
+  permission_handler: ^11.3.1     # Runtime permissions (camera, location, mic)
+  url_launcher: ^6.3.0            # Open URLs / deep links in browser
+  package_info_plus: ^8.0.2       # App version / build number at runtime
+  in_app_review: ^2.0.9           # Prompt for App Store / Play Store review
+  path_provider: ^2.1.3           # Access device file-system paths
+
+# ============================================================
+# DEV DEPENDENCIES (build-time only, not shipped to users)
+# ============================================================
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0           # Recommended Flutter linting rules
+
+  # Code generation
+  build_runner: ^2.4.9            # Runs code generators
+  riverpod_generator: ^2.4.0      # Generates @riverpod providers
+  injectable_generator: ^2.4.3    # Generates get_it registrations
+  json_serializable: ^6.8.0       # Generates fromJson/toJson for models
+
+  # Linting extras
+  custom_lint: ^0.6.4             # Plugin host for riverpod_lint
+  riverpod_lint: ^2.3.10          # Riverpod-specific lint rules
+
+# ============================================================
+# FLUTTER CONFIGURATION
+# ============================================================
+flutter:
+  uses-material-design: true
+
+  # Enable Flutter's ARB-based localization code generation.
+  # Place .arb files in lib/core/localization/l10n/
+  generate: true
+
+  # --------------------------------------------------------
+  # Static Assets
+  # --------------------------------------------------------
+  assets:
+    - assets/images/          # App images, banners, placeholders
+    - assets/icons/           # Custom SVG icon set
+    - assets/animations/      # Lottie JSON animations
+    - assets/data/            # Static JSON (fallback exchange rates, remedies stub)
+
+  # --------------------------------------------------------
+  # Custom Fonts – Nunito (clean, friendly, highly readable)
+  # Download from Google Fonts and place in assets/fonts/
+  # --------------------------------------------------------
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800

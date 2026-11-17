@@ -1,0 +1,75 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+.vscode/
+
+# Flutter/Dart/Pub
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Android
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+*.jks
+
+# iOS
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/DerivedData/
+**/ios/**/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Generated.xcconfig
+**/ios/Pods/
+
+# Firebase secrets – add these manually per platform
+google-services.json
+GoogleService-Info.plist
+
+# Environment & Secrets
+.env
+.env.local
+*.env
+secrets.dart
+
+# Playwright
+playwright-tests/node_modules/
+playwright-tests/test-results/
+playwright-tests/playwright-report/
+playwright-tests/dist/
+
+# Code-generated files (committed for visibility but excluded from diff noise)
+*.g.dart
+*.freezed.dart
+injection.config.dart
+
+# Coverage
+coverage/
+lcov.info
